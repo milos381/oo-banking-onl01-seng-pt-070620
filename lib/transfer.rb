@@ -22,10 +22,10 @@ class Transfer
     #binding.pry
     if @sender.balance < @amount || @sender.status == "closed"
       @status = "rejected"
-      puts "Transaction rejected. Please check your account balance."
+      return "Transaction rejected. Please check your account balance."
 
     elsif @status == "complete"
-      puts "Transaction was already excuted"
+      return "Transaction was already excuted"
     else
       @sender.deposit( @amount * -1)
       @receiver.deposit( @amount )
